@@ -1,14 +1,16 @@
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
+from tile import Tile
 
 pygame.init()
 pygame.display.set_caption('Maow')
-screen = pygame.display.set_mode([500, 500])
+screen = pygame.display.set_mode([1500, 1000])
 clock = pygame.time.Clock()
 
 dt = 0
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+tile = Tile('grass-tile.png')
 
 running = True
 while running:
@@ -30,6 +32,8 @@ while running:
         player_pos.y += 300 * dt
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
+
+    tile.draw(screen=screen)
 
     pygame.draw.circle(screen, 'blue', player_pos, 40)
 

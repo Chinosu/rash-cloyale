@@ -1,10 +1,12 @@
 import pygame
 
 pygame.init()
-
-screen = pygame.display.set_mode([500, 500])
-
 pygame.display.set_caption('Maow')
+screen = pygame.display.set_mode([500, 500])
+clock = pygame.time.Clock()
+
+dt = 0
+player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 running = True
 while running:
@@ -14,9 +16,23 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 print('Space bar pressed.')
-        
-    pygame.draw.rect(screen, (0, 128, 255), pygame.Rect(30, 30, 60, 60))
+
+    screen.fill('white')
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        player_pos.y -= 300 * dt
+    if keys[pygame.K_a]:
+        player_pos.x -= 300 * dt
+    if keys[pygame.K_s]:
+        player_pos.y += 300 * dt
+    if keys[pygame.K_d]:
+        player_pos.x += 300 * dt
+
+    pygame.draw.circle(screen, 'blue', player_pos, 40)
 
     pygame.display.flip()
+
+    dt = clock.tick(120) / 1000
 
 pygame.quit()

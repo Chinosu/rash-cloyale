@@ -2,12 +2,12 @@ import pygame
 
 
 class Chaser:
-    def __init__(self, screen, speed, position = None) -> None:
+    def __init__(self, speed, position = None) -> None:
+        self.speed = speed
         if position == None:
-            self.position = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+            self.position = pygame.Vector2(0, 0)
         else:
             self.position = position
-        self.speed = speed
 
     def chase(self, target_position):
         """

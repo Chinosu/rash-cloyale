@@ -2,6 +2,7 @@ import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 from tile import Tile
+from chaser import Chaser
 
 pygame.init()
 pygame.display.set_caption('Maow')
@@ -11,6 +12,7 @@ clock = pygame.time.Clock()
 dt = 0
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 tile = Tile('grass-tile.png')
+chaser = Chaser(1)
 
 running = True
 while running:
@@ -35,6 +37,8 @@ while running:
 
     tile.draw(screen=screen)
 
+    chaser.chase(player_pos)
+    pygame.draw.rect(screen, 'pink', (chaser.position.x, chaser.position.y, 200, 150))
     pygame.draw.circle(screen, 'blue', player_pos, 40)
 
     pygame.display.flip()

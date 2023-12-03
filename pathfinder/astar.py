@@ -1,6 +1,8 @@
 """
 Console app to develop pathfinding algorithm.
 """
+
+
 class Node:
     # Initialize a node with its position, parent, g, h, and f values
     def __init__(self, position, parent=None):
@@ -75,16 +77,3 @@ def astar(grid, start, end):
             open_list.append(child)
 
     return None  # No path found
-
-# Example usage
-grid = [[0, 0, 0, 0, 1],
-        [1, 1, 0, 0, 0],
-        [0, 0, 0, 1, 0],
-        [0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0]]
-
-start = (0, 0)
-end = (4, 4)
-
-path = astar(grid, start, end)
-print(path)

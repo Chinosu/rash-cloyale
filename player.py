@@ -14,8 +14,8 @@ class Card:
         self.dmg = 20
         self.attack_speed = 1.0     # attacks per second
         self.move_speed = 1.0       # tiles per second
-        self.cost = 1
-        self.image = pygame.image.load(img_path)
+        self.cost = 1               # elixir cost
+        self.image = pygame.image.load(img_path).convert_alpha()
     
     def upgrade(self):
         self.max_hp *= 1.1

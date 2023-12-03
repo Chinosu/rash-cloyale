@@ -50,3 +50,5 @@ class Player:
             # ...
             # After using the card, add it back to the end of the queue
             self.card_queue.append(card)
+            new_card = self.card_queue.pop(0)
+            self.current_cards.insert(index, new_card)

@@ -49,8 +49,8 @@ def grid(str):
     return [[int(number) for number in line.split()] for line in lines]
 
 
-lines = [line.strip() for line in big_str.strip().split('\n') if line.strip()]
-array_2d = [[int(number) for number in line.split()] for line in lines]
+# lines = [line.strip() for line in big_str.strip().split('\n') if line.strip()]
+# array_2d = [[int(number) for number in line.split()] for line in lines]
 
-for line in array_2d:
-    print(line)
+# for line in array_2d:
+#     print(line)

@@ -44,7 +44,7 @@ big_str = """
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 """
 
-def parse_grid(str):
+def grid(str):
     lines = [line.strip() for line in str.strip().split('\n') if line.strip()]
     return [[int(number) for number in line.split()] for line in lines]
 

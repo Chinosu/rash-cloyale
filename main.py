@@ -6,7 +6,7 @@ from map import Map
 
 pygame.init()
 pygame.display.set_caption('Maow')
-screen = pygame.display.set_mode([1500, 1000])
+screen = pygame.display.set_mode([750, 1000])
 clock = pygame.time.Clock()
 
 dt = 0

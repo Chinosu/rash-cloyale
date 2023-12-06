@@ -46,9 +46,9 @@ class Map:
         screen.blit(self.bridge, (bridge_x, bridge_y))
 
         screen.blit(self.king, (100, 750))
-        screen.blit(self.princess, (1300, 600))
+        screen.blit(self.princess, (550, 600))
         screen.blit(self.empty, (empty_x, 700))
 
-        screen.blit(self.enemy_king, (1250, 100))
+        screen.blit(self.enemy_king, (500, 100))
         screen.blit(self.enemy_princess, (100, 300))
         screen.blit(self.enemy_empty, (empty_x, 225))

@@ -18,11 +18,17 @@ class Map:
         self.princess = pygame.Surface((100, 100))
         self.princess.fill('Black')
 
+        self.empty = pygame.Surface((75, 75))
+        self.empty.fill('Black')
+
         self.enemy_king = pygame.Surface((150, 150))
         self.enemy_king.fill('Black')
 
         self.enemy_princess = pygame.Surface((100, 100))
         self.enemy_princess.fill('Black')
+
+        self.enemy_empty = pygame.Surface((75, 75))
+        self.enemy_empty.fill('Black')
     
     def draw(self, screen):
         bridge_width, bridge_height = self.bridge.get_size()
@@ -34,11 +40,15 @@ class Map:
         bridge_x = (screen.get_width() - bridge_width) // 2
         bridge_y = (screen.get_height() - bridge_height) // 2
 
+        empty_x = (screen.get_width() - 75) // 2
+
         screen.blit(self.river, (river_x, river_y))
         screen.blit(self.bridge, (bridge_x, bridge_y))
 
         screen.blit(self.king, (100, 750))
         screen.blit(self.princess, (1300, 600))
+        screen.blit(self.empty, (empty_x, 700))
 
         screen.blit(self.enemy_king, (1250, 100))
         screen.blit(self.enemy_princess, (100, 300))
+        screen.blit(self.enemy_empty, (empty_x, 225))

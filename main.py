@@ -41,7 +41,7 @@ while running:
     test_map.draw(screen=screen)
 
     chaser.chase(player_pos)
-    pygame.draw.rect(screen, 'pink', (chaser.position.x, chaser.position.y, 200, 150))
+    pygame.draw.rect(screen, 'pink', (chaser.position.x, chaser.position.y, 20, 25))
     pygame.draw.circle(screen, 'blue', player_pos, 40)
 
     pygame.display.flip()

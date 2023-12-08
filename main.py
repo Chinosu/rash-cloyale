@@ -12,7 +12,7 @@ def barrier_check(pos):
 
 pygame.init()
 pygame.display.set_caption('Maow')
-screen = pygame.display.set_mode([750, 1000]) # screen <=> surface
+screen = pygame.display.set_mode([600, 1000]) # screen <=> surface
 clock = pygame.time.Clock()
 
 dt = 0

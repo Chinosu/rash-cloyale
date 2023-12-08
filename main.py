@@ -5,16 +5,22 @@ from tile import Tile
 from chaser import Chaser
 from map import Map
 
+def barrier_check(pos):
+    # print(pos)
+    pixel = screen.get_at((round(pos.x), round(pos.y)))
+    return pixel == (0, 0, 0) or pixel == (0, 0, 255)
+
 pygame.init()
 pygame.display.set_caption('Maow')
-screen = pygame.display.set_mode([750, 1000])
+screen = pygame.display.set_mode([750, 1000]) # screen <=> surface
 clock = pygame.time.Clock()
 
 dt = 0
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 tile = Tile('grass-tile.png')
-chaser = Chaser(1)
+chaser = Chaser(barrier_check, 1)
 test_map = Map()
+bridge_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 running = True
 while running:
@@ -40,7 +46,12 @@ while running:
     tile.draw(screen=screen)
     test_map.draw(screen=screen)
 
-    chaser.chase(player_pos)
+    if chaser.position.y < bridge_pos.y and player_pos.y < bridge_pos.y:
+        chaser.chase(player_pos)
+    elif chaser.position.y > bridge_pos.y and player_pos.y > bridge_pos.y:
+        chaser.chase(player_pos)
+    else:
+        chaser.chase(bridge_pos)
     pygame.draw.rect(screen, 'pink', (chaser.position.x, chaser.position.y, 20, 25))
     pygame.draw.circle(screen, 'blue', player_pos, 40)
 

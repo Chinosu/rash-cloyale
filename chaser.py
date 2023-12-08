@@ -35,5 +35,4 @@ class Chaser:
                 return
             angle_delta += radians(15)
             count += 1
-            print('looping...')
         raise Exception('Likely infinite loop discovered at Chaser.chase')

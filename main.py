@@ -4,6 +4,7 @@ import pygame
 from tile import Tile
 from chaser import Chaser
 from map import Map
+from card import cardWindow
 
 def barrier_check(pos):
     # print(pos)
@@ -20,6 +21,7 @@ player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 tile = Tile('grass-tile.png')
 chaser = Chaser(barrier_check, 1)
 test_map = Map()
+card_window = cardWindow()
 bridge_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 running = True
@@ -45,6 +47,7 @@ while running:
 
     tile.draw(screen=screen)
     test_map.draw(screen=screen)
+    card_window.draw(screen=screen)
 
     if chaser.position.y < bridge_pos.y and player_pos.y < bridge_pos.y:
         chaser.chase(player_pos)
